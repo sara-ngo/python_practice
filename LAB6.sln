@@ -281,8 +281,8 @@ while not(cake_type == 'q' or cake_type == 'Q'):
                       " 2 for Red Velvet, 3 for Lemon, q to quit: ")
     if not (cake_type == 'q' or cake_type == 'Q'):
         cake_size = input("Please Select Cake Size; Enter L for large, R for regular: ")
-
     # end of while loop
+    
 print()
 print()
 
