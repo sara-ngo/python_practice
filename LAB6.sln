@@ -1,23 +1,312 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "LAB6", "LAB6.pyproj", "{3AD7C22D-C5E5-47E0-920E-9B865531C512}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3AD7C22D-C5E5-47E0-920E-9B865531C512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AD7C22D-C5E5-47E0-920E-9B865531C512}.Release|Any CPU.ActiveCfg = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {85D57E96-A64B-424A-AAF5-C4EF2FEA01FC}
-	EndGlobalSection
-EndGlobal
+def print_ingrd(flour_wt,sugar_wt,unsweetened_cocoa_powder_wt,baking_powder_wt,
+                baking_soda_wt,salt_wt,egg_wt,buttermilk_wt,oil_wt,
+                vanilla_extract_wt,boiling_water_wt,red_food_coloring_wt,
+                distilled_vinegar_wt,butter_wt,sifted_self_rising_flour_wt,
+                fill_egg_yolk_wt,fill_sugar_wt,fill_butter_wt,
+                fill_lemon_zest_wt):
+    if flour_wt != 0:
+        print("%-28s%5.1f Oz" % ("Flour:", flour_wt))
+    if sugar_wt != 0:
+        print("%-28s%5.1f Oz" % ("Sugar: ", sugar_wt))
+    if unsweetened_cocoa_powder_wt != 0:
+        print("%-28s%5.1f Oz" % ("Unsweetened Cocoa Powder: ", unsweetened_cocoa_powder_wt))
+    if baking_powder_wt != 0:
+        print("%-28s%5.1f Oz" % ("Baking Powder: ", baking_powder_wt) )
+    if baking_soda_wt != 0:
+        print("%-28s%5.1f Oz" % ("Baking Soda: ", baking_soda_wt) )
+    if salt_wt != 0:
+        print("%-28s%5.1f Oz" % ("Salt: ", salt_wt) )
+    if egg_wt != 0:
+        print("%-28s%5.1f Oz" % ( "Egg: ", egg_wt) )
+    if buttermilk_wt != 0:
+        print("%-28s%5.1f Oz" % ("Buttermilk: ", buttermilk_wt) )
+    if oil_wt != 0:
+        print("%-28s%5.1f Oz" % ("Oil: ", oil_wt ) )
+    if vanilla_extract_wt != 0:
+        print("%-28s%5.1f Oz" % ("Vanilla Extract: ", vanilla_extract_wt) )
+    if boiling_water_wt != 0:
+        print("%-28s%5.1f Oz" % ("Boiling Water: ", boiling_water_wt) )
+    if red_food_coloring_wt != 0:
+        print("%-28s%5.1f Oz" % ("Red Food Coloring:", red_food_coloring_wt) )
+    if distilled_vinegar_wt != 0:
+        print("%-28s%5.1f Oz" % ("Distilled Vinegar: ", distilled_vinegar_wt) )
+    if butter_wt != 0:
+        print("%-28s%5.1f Oz" % ("Butter: ", butter_wt) )
+    if sifted_self_rising_flour_wt != 0:
+        print("%-28s%5.1f Oz" % ("Sifted Self Rising Flour: ", sifted_self_rising_flour_wt))
+    # filling
+    if fill_egg_yolk_wt != 0:
+        print("%-28s%5.1f Oz" % ("Filling - Egg Yolk: ", fill_egg_yolk_wt))
+    if fill_sugar_wt != 0:
+        print("%-28s%5.1f Oz" % ("Filling - Sugar: ", fill_sugar_wt))
+    if fill_butter_wt != 0:
+        print("%-28s%5.1f Oz" % ("Filling - Butter: ", fill_butter_wt))
+    if fill_lemon_zest_wt != 0:
+        print("%-28s%5.1f Oz" % ("Filling - Lemon Zest: ", fill_lemon_zest_wt))
+
+    # Test code - back calcuation to get total weight
+    print("%-28s%5.1f Oz" % ("Total: ", 
+                             flour_wt+sugar_wt+unsweetened_cocoa_powder_wt+baking_powder_wt+baking_soda_wt+salt_wt
+                             +egg_wt+buttermilk_wt+oil_wt+vanilla_extract_wt+boiling_water_wt+red_food_coloring_wt
+                             +distilled_vinegar_wt+butter_wt+sifted_self_rising_flour_wt+fill_egg_yolk_wt
+                             +fill_sugar_wt+fill_butter_wt+fill_lemon_zest_wt) )
+
+
+def calc_chocolate_ingrd(cake_wt):
+    # Chocolate cake recipe; in percentage of total weight
+    CHOC_FLOUR_PCT = 15.8
+    CHOC_SUGAR_PCT = 24.5
+    CHOC_UNSWEETENED_COCOA_POWDER_PCT = 5.6
+    CHOC_BAKING_POWER_PCT = 0.4
+    CHOC_BAKING_SODA_PCT = 0.6
+    CHOC_SALT_PCT = 0.4
+    CHOC_EGG_PCT = 9.0
+    CHOC_BUTTERMILK_PCT = 18.0
+    CHOC_OIL_PCT = 8.1
+    CHOC_VANILLA_EXTRACT_PCT = 0.6
+    CHOC_BOILING_WATER_PCT = 17.0
+
+    # zero every ingredient wt
+    flour_wt = 0
+    sugar_wt = 0
+    unsweetened_cocoa_powder_wt = 0
+    baking_powder_wt = 0
+    baking_soda_wt = 0
+    salt_wt = 0
+    egg_wt = 0
+    buttermilk_wt = 0
+    oil_wt = 0
+    vanilla_extract_wt = 0
+    boiling_water_wt = 0
+    red_food_coloring_wt = 0
+    distilled_vinegar_wt = 0
+    butter_wt = 0
+    sifted_self_rising_flour_wt = 0
+    # Filling
+    fill_egg_yolk_wt = 0
+    fill_sugar_wt = 0
+    fill_butter_wt = 0
+    fill_lemon_zest_wt = 0  
+
+    #calculate ingredient wts for choclate cake
+    flour_wt = cake_wt * CHOC_FLOUR_PCT/100
+    sugar_wt = cake_wt * CHOC_SUGAR_PCT/100
+    unsweetened_cocoa_powder_wt = cake_wt * CHOC_UNSWEETENED_COCOA_POWDER_PCT/100
+    baking_powder_wt = cake_wt * CHOC_BAKING_POWER_PCT/100
+    baking_soda_wt = cake_wt * CHOC_BAKING_SODA_PCT/100
+    salt_wt = cake_wt * CHOC_SALT_PCT/100
+    egg_wt = cake_wt * CHOC_EGG_PCT/100
+    buttermilk_wt = cake_wt * CHOC_BUTTERMILK_PCT/100
+    oil_wt = cake_wt * CHOC_OIL_PCT/100
+    vanilla_extract_wt = cake_wt * CHOC_VANILLA_EXTRACT_PCT/100
+    boiling_water_wt = cake_wt * CHOC_BOILING_WATER_PCT/100
+
+    print_ingrd(flour_wt, sugar_wt, unsweetened_cocoa_powder_wt,
+                baking_powder_wt, baking_soda_wt, salt_wt, egg_wt,
+                buttermilk_wt, oil_wt, vanilla_extract_wt, boiling_water_wt,
+                red_food_coloring_wt, distilled_vinegar_wt, butter_wt,
+                sifted_self_rising_flour_wt, fill_egg_yolk_wt, fill_sugar_wt,
+                fill_butter_wt, fill_lemon_zest_wt)
+
+
+def calc_red_velvet_ingrd(cake_wt):
+
+    # Red Velvet cake recipe; in percentage of total weight
+    REDV_FLOUR_PCT = 22.4
+    REDV_SUGAR_PCT = 22.4
+    REDV_BAKING_SODA_PCT = 0.7
+    REDV_SALT_PCT = 0.4
+    REDV_UNSWEETENED_COCOA_POWDER_PCT = 0.4
+    REDV_OIL_PCT = 24.0111
+    REDV_BUTTERMILK_PCT = 17.9
+    REDV_EGG_PCT = 9.0
+    REDV_RED_FOOD_COLORING_PCT = 2.1
+    REDV_VANILLA_EXTRACT_PCT = 0.3
+    REDV_DISTILLED_VINEGAR_PCT = 0.4
+
+    # zero every ingredient wt
+    flour_wt = 0
+    sugar_wt = 0
+    unsweetened_cocoa_powder_wt = 0
+    baking_powder_wt = 0
+    baking_soda_wt = 0
+    salt_wt = 0
+    egg_wt = 0
+    buttermilk_wt = 0
+    oil_wt = 0
+    vanilla_extract_wt = 0
+    boiling_water_wt = 0
+    red_food_coloring_wt = 0
+    distilled_vinegar_wt = 0
+    butter_wt = 0
+    sifted_self_rising_flour_wt = 0
+    # Filling
+    fill_egg_yolk_wt = 0
+    fill_sugar_wt = 0
+    fill_butter_wt = 0
+    fill_lemon_zest_wt = 0
+
+    # Calculate the ingredient wts for Red Velvet Cake
+    flour_wt = cake_wt * REDV_FLOUR_PCT/100
+    sugar_wt = cake_wt * REDV_SUGAR_PCT/100
+    baking_soda_wt = cake_wt * REDV_BAKING_SODA_PCT/100
+    salt_wt = cake_wt * REDV_SALT_PCT/100
+    unsweetened_cocoa_powder_wt = cake_wt * REDV_UNSWEETENED_COCOA_POWDER_PCT/100
+    oil_wt = cake_wt * REDV_OIL_PCT/100
+    buttermilk_wt = cake_wt * REDV_BUTTERMILK_PCT/100
+    egg_wt = cake_wt * REDV_EGG_PCT/100
+    red_food_coloring_wt = cake_wt * REDV_RED_FOOD_COLORING_PCT/100
+    vanilla_extract_wt = cake_wt * REDV_VANILLA_EXTRACT_PCT/100
+    distilled_vinegar_wt = cake_wt * REDV_DISTILLED_VINEGAR_PCT/100
+    
+    print_ingrd(flour_wt, sugar_wt, unsweetened_cocoa_powder_wt,
+                baking_powder_wt, baking_soda_wt, salt_wt, egg_wt,
+                buttermilk_wt, oil_wt, vanilla_extract_wt, boiling_water_wt,
+                red_food_coloring_wt, distilled_vinegar_wt, butter_wt,
+                sifted_self_rising_flour_wt, fill_egg_yolk_wt, fill_sugar_wt,
+                fill_butter_wt, fill_lemon_zest_wt)
+   
+def calc_lemon_ingrd(cake_wt):
+    # Lemon cake recipe; in percentage of total weight
+    LEMO_BUTTER_PCT = 8.5
+    LEMO_SUGAR_PCT = 15.0
+    LEMO_EGG_PCT = 9.0
+    LEMO_SIFTED_SELF_RISING_FLOUR_PCT = 15.6
+    LEMO_BUTTERMILK_PCT = 9.0
+    LEMO_VANILLA_EXTRACT_PCT = 0.2
+    # Filling
+    LEMO_FILL_EGG_YOLK_PCT = 17.9
+    LEMO_FILL_SUGAR_PCT = 11.3
+    LEMO_FILL_BUTTER_PCT = 2.1
+    LEMO_FILL_LEMON_ZEST_PCT = 11.4
+
+    # zero every ingredient wt
+    flour_wt = 0
+    sugar_wt = 0
+    unsweetened_cocoa_powder_wt = 0
+    baking_powder_wt = 0
+    baking_soda_wt = 0
+    salt_wt = 0
+    egg_wt = 0
+    buttermilk_wt = 0
+    oil_wt = 0
+    vanilla_extract_wt = 0
+    boiling_water_wt = 0
+    red_food_coloring_wt = 0
+    distilled_vinegar_wt = 0
+    butter_wt = 0
+    sifted_self_rising_flour_wt = 0
+    # Filling
+    fill_egg_yolk_wt = 0
+    fill_sugar_wt = 0
+    fill_butter_wt = 0
+    fill_lemon_zest_wt = 0
+
+    # Calculate the ingredient wts for Lemon Cake
+    butter_wt = cake_wt * LEMO_BUTTER_PCT/100
+    sugar_wt = cake_wt * LEMO_SUGAR_PCT/100
+    egg_wt = cake_wt * LEMO_EGG_PCT/100
+    sifted_self_rising_flour_wt = cake_wt * LEMO_SIFTED_SELF_RISING_FLOUR_PCT/100
+    buttermilk_wt = cake_wt * LEMO_BUTTERMILK_PCT/100
+    vanilla_extract_wt = cake_wt * LEMO_VANILLA_EXTRACT_PCT/100
+    # Filling
+    fifill_sugar_wt = cake_wt * LEMO_FILL_SUGAR_PCT/100
+    fill_egg_yolk_wt = cake_wt * LEMO_FILL_EGG_YOLK_PCT/100
+    fill_butter_wt = cake_wt * LEMO_FILL_BUTTER_PCT/100
+    fill_lemon_zest_wt = cake_wt * LEMO_FILL_LEMON_ZEST_PCT/100
+
+    print_ingrd(flour_wt, sugar_wt, unsweetened_cocoa_powder_wt,
+                baking_powder_wt, baking_soda_wt, salt_wt, egg_wt,
+                buttermilk_wt, oil_wt, vanilla_extract_wt, boiling_water_wt,
+                red_food_coloring_wt, distilled_vinegar_wt, butter_wt,
+                sifted_self_rising_flour_wt, fill_egg_yolk_wt, fill_sugar_wt,
+                fill_butter_wt, fill_lemon_zest_wt)
+
+# Cake size weights in oz
+LARGE_CAKE_WT = 7 * 16
+REGULAR_CAKE_WT = 4 * 16
+
+# initialize cake order data
+choc_cake_wt = 0
+large_choc_cake = 0
+reg_choc_cake = 0
+
+redv_cake_wt = 0
+large_redv_cake = 0
+reg_redv_cake = 0
+
+lemo_cake_wt = 0
+large_lemo_cake = 0
+reg_lemo_cake = 0
+
+cake_type = input("Please Select Cake Type; Enter 1 for Chocolate,"
+                       " 2 for Red Velvet, 3 for Lemon, q to quit: ")
+
+if not( cake_type == 'q' or cake_type == 'Q' ):
+    # query cake size
+    cake_size = input("Please Select Cake Size; Enter L for large, R for regular: ")
+
+while not(cake_type == 'q' or cake_type == 'Q'):
+    print()
+    cake_type = eval(cake_type)
+
+    if cake_type == 1:
+        if cake_size == 'R' or cake_size == 'r':
+            # keep track of the quantity ordered
+            choc_cake_wt += REGULAR_CAKE_WT
+            reg_choc_cake += 1
+        elif cake_size == 'L' or cake_size == 'l':
+            choc_cake_wt += LARGE_CAKE_WT
+            large_choc_cake += 1
+
+    elif cake_type == 2:
+        if cake_size == 'R' or cake_size == 'r':
+            # keep track of the quantity ordered
+            redv_cake_wt += REGULAR_CAKE_WT
+            reg_redv_cake += 1
+        elif cake_size == 'L' or cake_size == 'l':
+            redv_cake_wt += LARGE_CAKE_WT
+            large_redv_cake += 1
+
+    elif cake_type == 3:
+        if cake_size == 'R' or cake_size == 'r':
+            # keep track of the quantity ordered
+            lemo_cake_wt += REGULAR_CAKE_WT
+            reg_lemo_cake += 1
+        elif cake_size == 'L' or cake_size == 'l':
+            lemo_cake_wt += LARGE_CAKE_WT
+            large_lemo_cake += 1
+
+    cake_type = input("Please Select Cake Type; Enter 1 for Chocolate,"
+                      " 2 for Red Velvet, 3 for Lemon, q to quit: ")
+    if not (cake_type == 'q' or cake_type == 'Q'):
+        cake_size = input("Please Select Cake Size; Enter L for large, R for regular: ")
+
+    # end of while loop
+print()
+print()
+
+
+#print header for Chocolate Cake before calculate
+header = "Ingredient Quantities for %i Large and %i Regular Chocolate Cake\n" %\
+         (large_choc_cake, reg_choc_cake)
+print(header)
+calc_chocolate_ingrd( choc_cake_wt )
+print()
+print()
+
+#print header for Red Velvet Cake before calculate
+header = "Ingredient Quantities for %i Large and %i Regular Red Velvet Cake\n" %\
+         (large_redv_cake, reg_redv_cake)
+print(header)
+calc_red_velvet_ingrd( redv_cake_wt )
+print()
+print()
+
+#print header for Lemon Cake before calculate
+header = "Ingredient Quantities for %i Large and %i Regular Lemon Cake\n" %\
+         (large_lemo_cake, reg_lemo_cake)
+print(header)
+calc_lemon_ingrd ( lemo_cake_wt)
+print()
+print()
